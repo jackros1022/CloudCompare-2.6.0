@@ -1,0 +1,116 @@
+/****************************************/
+/********* CC (HOLLY) TODO LIST *********/
+/****************************************/
+
+Methods not yet migrated back to V2:
+- void MainWindow::doActionKMeans
+- void MainWindow::doActionFrontPropagation
+- void MainWindow::doActionLoadShader
+
+File I/O:
+- PDF 3D
+- X3D files (integration with 'xiot' in... standby)
+- POD files (Pointools)
+- LEICA, POD file formats
+- SHP files (with GDAL?)
+- OpenCTM format (https://github.com/cloudcompare/trunk/issues/146)
+- Visual SFM format (http://www.cloudcompare.org/forum/viewtopic.php?t=550)
+
+*** And from the forum topic or emails 'recent requests' ***
+
+Big ones:
+[*] fly-through mode (http://www.cloudcompare.org/forum/viewtopic.php?t=179)
+[*] Command line mode could be extended
+	- Rasterize tool (http://www.cloudcompare.org/forum/viewtopic.php?t=786)
+	- Label Connected Components tool (http://www.cloudcompare.org/forum/viewtopic.php?t=933)
+	- Let the user specify the precise content of an ASCII file in order to prevent the file opening dialog
+		from appearing (will happen - even in 'silent mode' - if the file has more than 5 columns)
+[*] Point cloud cleanup tools (http://www.cloudcompare.org/forum/viewtopic.php?t=191)
+[*] Volume calculation
+[*] Update qKinect with the Kinect for Windows SDK (1.8)
+
+Various:
+[*] Change Triangle lib by a GPL-compatible library
+[*] Export primitives to a (simple, free) CAD format (http://www.cloudcompare.org/forum/viewtopic.php?t=573)
+[*] Edit parameters for qEDL (luminosity, etc.)
+[*] Dedicated method for isolated points removal (based on the Connected Components one)
+[*] Enhance qCork so as to keep the mesh(es) properties (color, normals, etc.)
+[*] Properly segment meshes in both the graphical segmentation tool and the Cross section tool
+[*] Import control points from ascii file (for point pair-based registration - http://www.cloudcompare.org/forum/viewtopic.php?t=585)
+[*] Use a scalar field (such as scattering angles) in the subsampling method to keep the "best" points
+	Equivalent approach with the local curvature (http://www.cloudcompare.org/forum/viewtopic.php?t=711)
+[*] Add touchpad support (http://www.cloudcompare.org/forum/viewtopic.php?t=671)
+[*] Reverse Unroll Feature (http://www.cloudcompare.org/forum/viewtopic.php?t=645)
+[*] Let the user select and handle multiple clouds in the 'Clipping box' tool
+[*] Per-point size based on SF values (http://www.cloudcompare.org/forum/viewtopic.php?t=507)
+[*] Display ortho-rectified images as high-res textures (instead of point clouds!)
+[*] Use PDAL instead of libLAS (http://www.cloudcompare.org/forum/viewtopic.php?t=437)
+[*] Run the PCV plugin on more than one file at a time (or batch process)
+[*] Add interactive measurement features to ccViewer
+[*] Support mesh transparency (and PLY 'alpha' property for instance)
+[*] Convert RGB colors/scalar field to texture when exporting to OBJ mesh file (http://www.danielgm.net/cc/forum/viewtopic.php?t=830)
+[*] Overlay grid (for 3D views - http://www.cloudcompare.org/forum/viewtopic.php?t=926) 
+
+
+From Thomas S. (http://www.cloudcompare.org/forum/viewtopic.php?t=550)
+[*] If CloudCompare would support VisualSFM, it would be possible to import the VisualSFM-Project (with the saved camera positions).
+	Then it should be possible to measure the points for the georeferencing in the images itself, instead of the point-cloud, which would be much more accurate.
+
+From Andrew B.
+[*] 'minimise bounding box' or various automated ways to make objects 'stand up' the way they are supposed to or be rigid-transformed on the basis of perceived axial symmetry
+[*] An automatic 'scale to unit size' in cases where compare different sized things is of interest, but size can be discarded or treated separately
+[*] Automation of the above tasks via the command line
+
+From Dimitri L.
+[*] Being able to apply various methods based on a sub-sampled cloud
+[*] Vector fields (http://www.cloudcompare.org/forum/viewtopic.php?t=201)
+
+From Thomas D.
+[*] Splatting (http://idav.ucdavis.edu/~okreylos/ResDev/LiDAR/index.html)
+[*] Show/hide points based on their normal (http://www.cloudcompare.org/forum/viewtopic.php?t=168)
+
+From AdrienA
+[*] Radiance scaling shader
+
+From Chartzell
+[*] A limit box- Being able to hide portions of the clouds you are working on can make the registration process much quicker and easier. With a customizable limit box you can look at just a small cross section of the clouds to get a good view of how well they fit together and what adjustments need to be made. Ideally, you would be able to push and pull on the various sides of the box to change it's dimensions.
+[*] Ability to do fly around animations and export them to some type of video format? Something where you could set various viewpoints and and have the camera fly between each point. Google SketchUp has a great example of this function. (see 'flythrough mode' above)
+
+From Jean-Francois H.
+[*] Exporting histogram as image
+
+From Konrad W.
+[*] Something like the plane shader from point tools where the depth is coloured with the Hue channel
+[*] Out-of-core support (like those guys: http://ros.org/wiki/megatree or the out-of-core structure in the PCL)
+
+From Rav M.
+[*] Add front and back cutting plane
+[*] move and rotate global coordinate (X,Y,Z) or aligning it like camera and then adding another parts to correct scene in right place.
+
+From Gianluca C.
+[*] to overlay an image over the mesh with some common points and "drape" the photo on the surface
+
+From Andrew O.
+[*] add some type of 3D eraser. Perhaps being able to select and clear an octree cell may be the place to start (http://www.cloudcompare.org/forum/viewtopic.php?t=191)
+
+From Tim C.
+[*] Translate/Rotate with keys or GUI buttons (http://www.cloudcompare.org/forum/viewtopic.php?t=556)
+
+From Raphael M.
+[*] Add a checkbox on the Color Scale Manager to apply the current scale modifications in real time
+
+From Andrew O.
+[*] Small Clouds: I consider a cloud to be 2 or more data points. Small clouds don't behave well in Cloud compare. RANSAC, Connected Components and some other functions either crash the app or hang or go off in an endless loop when this is the case. 
+[*] Selected Sets: It would be nice to be able to work with a selected set rather than having to segment the cloud. What you need here is some database functionality. Since CloudCompare is an analysis tool, it could benefit from conceptual thinking from the GIS world. Filtering scalar fields is a good start - I use that a lot. Being able to do some simple SQL to grab points into a set would be very helpful. This ties in with my comment on attributes below. 
+[*] Point ID: It would be nice if Ascii import could import the "labels: for points. I don't expect to be able to render labels for a large cloud - that would be silly. They can be accessed in point collection, but I'd like to be able to use my own labels as they occur rather than think my way through a zero based collection based on point order. They need to be alpha-numeric. This relates to the selected sets comment above. 
+[*] 3-d Line: There is a lot of functionality for planes, spheres etc, but there is no line primitive.There are case where I would like to be able to model a line of best fit on observed points and compare that to another edge. For example, I have a current task to compare columns in a structure and we are measuring multiple points on the edge of steel members. It would be good to implement a number of objects: segment (two point), string (>2 points) etc. The mirror to this in the primitive space would be objects such as lemniscates, cubic spirals, helixes etc.
+[*] Attributes and strings: It would be nice to be able to connect common points in a cloud according to alpha and/or numeric values in the cloud. This is common in surveying software where we code a point by an alpha/numeric code to indicate a feature type such as "edge of footpath". We would code the data with the edge as alpha and give it a string number. Then when the software encounters the data it builds lines according to the order they are in the file and the string number. Additional codes can be used to start and end strings or do more complex things. 
+[*] Data Entry: It would be nice to be able to key the data for a point or points, to simply add few point to the cloud. A case where this would be advantageous is to enable to user to add in additional control data rather than having to suck in another ascii file. Alternatively in a small cloud, you may wish to edit the coordinates of a point
+[*] Alignments: Nice functionality but...it would be nice if a report was produced that explained the scale, rotation and translation, mentioned the residuals, and did some statistical tests to help the user determine if it was a valid transformation.
+[*] Transformations: It would be nice to be able to apply conformal and affine transformations. The current matrix system requires complex calculation outside the software to compute the 4x4 matrix from known parameters. It would be nice to apply scale,omega,kappa,phi,tx,ty,tz directly.
+
+From 'dsims1980'
+[*] Spherical Parameterization of cloud or meshes is very useful for visual comparison of two models (http://www.cloudcompare.org/forum/viewtopic.php?t=581)
+
+From Eugene L.
+[*] To be able to transfer color from a jpg image to a mesh or point cloud.
